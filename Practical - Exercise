@@ -1,0 +1,121 @@
+Display all columns for all transactions?
+
+SELECT*
+FROM retail_sales_dataset;
+
+Display only the Transaction ID, DATE,and Customer ID for all records?
+
+SELECT transaction_id,
+       date,
+       customer_id
+FROM retail_sales_dataset;
+
+Display all the distinct product categories in the dataset?
+
+SELECT DISTINCT product_category
+FROM retail_sales_dataset;
+
+Display all the distinct gender values in the dataset?
+
+SELECT DISTINCT gender
+FROM retail_sales_dataset;
+
+Display all transactions where the Age is greater than 40?
+SELECT*
+FROM retail_sales_dataset
+WHERE Age>40;
+
+Display all transactions where the Price per Unit is between 100 and 500?
+SELECT *
+FROM retail_sales_dataset
+WHERE price_per_Unit BETWEEN 100 AND 500;
+
+Display all transactions where the product category is either 'beauty'or 'Electronics'?
+SELECT *
+FROM retail_sales_dataset
+WHERE product_category IN ('beauty', 'Electronics');
+
+Display all transactions where the product category is not 'Clothing'?
+
+SELECT *
+FROM retail_sales_dataset
+WHERE product_category <> 'Clothing';
+
+display all transactions where the Quality is greater or equal to 3?
+
+SELECT*
+FROM retail_sales_dataset
+WHERE Quantity >= 3;
+
+COUNT the total number of transactions?
+
+SELECT COUNT(*)AS Total_transactions
+FROM retail_sales_dataset,
+
+Find the average Age of customers.
+
+SELECT AVG(Age)AS average_age
+FROM retail_sales_dataset,
+
+Find the total quantity of products sold.
+
+SELECT SUM(quantity)AS quantity_sold
+FROM retail_sales_dataset;
+
+Find the maximum Total Amount spent in a single transaction.
+
+SELECT MAX(total_amount)AS Max_Total_Amount
+FROM retail_sales_dataset;
+
+Find the minimum Price per Unit in the dataset.
+
+SELECT MIN(price_per_unit)AS Min_Price_per_Unit
+FROM retail_sales_dataset;
+
+Find the number of transactions per Product Category.
+
+SELECT product_category,
+    COUNT(*)AS Transaction_count
+FROM retail_sales_dataset
+GROUP BY product_category;
+
+Find the total revenue(Total Amount)per gender.
+
+SELECT SUM(total_Amount)AS Total_Revenue,
+          gender
+FROM retail_sales_dataset
+GROUP BY gender;
+
+Find the average Price per Unit per product category.
+
+SELECT product_category,
+    AVG(price_per_Unit)AS avg_price
+FROM retail_sales_dataset
+GROUP BY product_category;
+
+Find the total per product category where total revenue is greater than 10,000.
+
+SELECT product_category,
+  SUM(total_amount)AS total_revenue
+FROM retail_sales_dataset
+GROUP BY product_category
+HAVING total_revenue>10000;
+
+Find the average quantity per product category where the average is more than 2.
+
+SELECT product_category,
+ AVG(quantity)as Average_Quantity
+FROM retail_sales_dataset
+GROUP BY product_category
+HAVING average_quantity >2
+
+Display a column called Spending_level that shows 'High' if Total amount>1000 otherwise'Low'?
+
+SELECT Transaction_id,
+       Total_amount,
+  CASE WHEN Total_amount>1000 THEN 'High'
+  ELSE 'Low'
+  END AS Spending_Level
+FROM retail_sales_dataset
+
+ 
