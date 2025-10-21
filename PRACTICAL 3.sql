@@ -93,7 +93,8 @@ SELECT CUSTOMER_ID,
        COLOR,
        PREVIOUS_PURCHASES
 FROM SHOPPING_TRENDS_DATASET
-WHERE COLOR IS NOT NULL;
+WHERE PREVIOUS_PURCHASES IS NULL
+ AND COLOR IS NOT NULL;
 
 ----------------------------------------------------------------------------------------------------------------------
 ---9. Group records by Frequency of
